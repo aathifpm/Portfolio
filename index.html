@@ -550,8 +550,23 @@
 
     <script src="js/script.js"></script>
     
-    <!-- Form submission to Gmail script -->
+    <!-- Form submission and email handling script -->
     <script>
+        // Check if device is mobile
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        // Update all email links based on device type
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailLinks = document.querySelectorAll('a[href^="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com"]');
+            
+            if (isMobile) {
+                emailLinks.forEach(link => {
+                    link.href = "mailto:aathifpm123@gmail.com";
+                });
+            }
+        });
+        
+        // Handle contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -563,7 +578,13 @@
             const mailtoSubject = encodeURIComponent(subject);
             const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
             
-            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com&su=${mailtoSubject}&body=${mailtoBody}`, '_blank');
+            if (isMobile) {
+                // Use mailto protocol for mobile devices to open native email app
+                window.location.href = `mailto:aathifpm123@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+            } else {
+                // Use Gmail web composer for desktop
+                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com&su=${mailtoSubject}&body=${mailtoBody}`, '_blank');
+            }
         });
     </script>
 </body>
