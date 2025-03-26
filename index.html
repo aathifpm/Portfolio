@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aathif Jameel PM - AI & Full Stack Developer Portfolio showcasing projects, skills, and experience in AI, Web, and Mobile development">
+    <meta name="keywords" content="Aathif Jameel, AI Developer, Full Stack Developer, Machine Learning, Web Development, Mobile Development">
+    <meta name="author" content="Aathif Jameel PM">
+    <meta property="og:title" content="Aathif Jameel PM - AI & Full Stack Developer">
+    <meta property="og:description" content="Portfolio showcasing AI, Web & Mobile development projects and skills">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aathifpm.github.io">
     <title>Aathif Jameel PM - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/aathifpm/aathifpm.github.io/main/favicon.ico">
+    <!-- Theme toggle script (placed in head for immediate effect) -->
+    <script>
+        // Check for saved theme preference or use system preference
+        const getPreferredTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                
+                return savedTheme;
+            }
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            return systemPrefersDark ? 'dark' : 'light';
+        }
+
+        // Apply the theme
+        const setTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+        }
+
+        // Set initial theme
+        setTheme(getPreferredTheme());
+    </script>
 </head>
 <body>
     <!-- Header Section -->
@@ -22,6 +54,12 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="theme-toggle">
+                        <button id="themeToggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -36,6 +74,9 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-image">
+                    <img src="images/prf.jpg" alt="Aathif Jameel PM">
+                </div>
                 <div class="hero-text">
                     <h1>AATHIF JAMEEL PM</h1>
                     <h2>AI & Full Stack Developer</h2>
@@ -44,11 +85,11 @@
                         <a href="#contact" class="btn primary-btn">Contact Me</a>
                         <a href="#projects" class="btn secondary-btn">View Projects</a>
                     </div>
-                </div>
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/aathifpm/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.github.com/aathifpm" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:aathifpm123@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <div class="hero-social">
+                        <a href="https://www.linkedin.com/in/aathifpm/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.github.com/aathifpm" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,6 +277,9 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <div class="project-content">
                         <h3>Jarvis</h3>
                         <p>A Python-based virtual assistant with voice recognition and task automation, enhanced by API integrations for functionality.</p>
@@ -244,9 +288,16 @@
                             <span>AI</span>
                             <span>Voice Recognition</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/Jarvis" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <div class="project-content">
                         <h3>Agent Sterling</h3>
                         <p>An AI-driven task management agent using Python, focusing on automation and efficiency for routine tasks.</p>
@@ -255,9 +306,16 @@
                             <span>AI</span>
                             <span>Automation</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/Agent_Sterling" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-language"></i>
+                    </div>
                     <div class="project-content">
                         <h3>AI Translator Hub</h3>
                         <p>A web-based translation platform with HTML, JavaScript, and AI models for accurate, efficient language processing.</p>
@@ -266,9 +324,16 @@
                             <span>JavaScript</span>
                             <span>AI</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/AI_translator_Hub" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-running"></i>
+                    </div>
                     <div class="project-content">
                         <h3>SportsFiesta</h3>
                         <p>A JavaScript-based sports event platform to manage and dynamically display real-time sports information.</p>
@@ -276,9 +341,16 @@
                             <span>JavaScript</span>
                             <span>Web Development</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/SportsFiesta" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
                     <div class="project-content">
                         <h3>FestFusion</h3>
                         <p>An event management platform using JavaScript and web technologies to streamline organization and participation.</p>
@@ -286,9 +358,16 @@
                             <span>JavaScript</span>
                             <span>Web Development</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/Festfusion" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
                     <div class="project-content">
                         <h3>NeuraCare</h3>
                         <p>AI-Powered Virtual Health Assistant (2024) - A mobile healthcare app with React Native, using AI, Federated Learning, and Firebase for privacy-focused features.</p>
@@ -297,9 +376,16 @@
                             <span>AI</span>
                             <span>Firebase</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/NeuraCare" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-comments"></i>
+                    </div>
                     <div class="project-content">
                         <h3>College Feedback Management System</h3>
                         <p>A full-stack feedback system with PHP, MySQL, and JavaScript, featuring multi-role access and automated reporting.</p>
@@ -308,9 +394,16 @@
                             <span>MySQL</span>
                             <span>JavaScript</span>
                         </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/Feedback_system" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
                     <div class="project-content">
                         <h3>MLB Storyteller (Statsaga)</h3>
                         <p>AI-Powered Baseball Platform - A full-stack platform on Google Cloud with FastAPI and Docker, creating AI-driven MLB narratives.</p>
@@ -319,6 +412,10 @@
                             <span>FastAPI</span>
                             <span>Docker</span>
                             <span>AI</span>
+                        </div>
+                        <div class="project-links">
+                            
+                            <a href="https://github.com/aathifpm/MLB_GCP" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -382,7 +479,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Email</h3>
-                            <p><a href="mailto:aathifpm123@gmail.com">aathifpm123@gmail.com</a></p>
+                            <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com" target="_blank">aathifpm123@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -445,12 +542,29 @@
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/aathifpm/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.github.com/aathifpm" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:aathifpm123@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    
+    <!-- Form submission to Gmail script -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            const mailtoSubject = encodeURIComponent(subject);
+            const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+            
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com&su=${mailtoSubject}&body=${mailtoBody}`, '_blank');
+        });
+    </script>
 </body>
 </html> 
