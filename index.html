@@ -12,9 +12,15 @@
     <meta property="og:url" content="https://aathifpm.github.io">
     <title>Aathif Jameel PM - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/effects.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/aathifpm/aathifpm.github.io/main/favicon.ico">
+    <!-- Add new libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- Theme toggle script (placed in head for immediate effect) -->
     <script>
         // Check for saved theme preference or use system preference
@@ -41,6 +47,7 @@
     </script>
 </head>
 <body>
+    <div class="scroll-progress"></div>
     <!-- Header Section -->
     <header>
         <div class="container">
@@ -73,6 +80,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div id="particles-js"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-image">
@@ -81,7 +89,7 @@
                 <div class="hero-text">
                     <h1>AATHIF JAMEEL PM</h1>
                     <h2>AI & Full Stack Developer</h2>
-                    <p>Building innovative solutions with AI, Web & Mobile technologies</p>
+                    <p id="typed-text"></p>
                     <div class="hero-cta">
                         <a href="#contact" class="btn primary-btn">Contact Me</a>
                         <a href="#projects" class="btn secondary-btn">View Projects</a>
@@ -165,57 +173,222 @@
                 <div class="section-line"></div>
             </div>
             <div class="skills-content">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">JavaScript</div>
-                        <div class="skill-item">TypeScript</div>
-                        <div class="skill-item">PHP</div>
+                <div class="skill-category" data-tilt>
+                    <div class="skill-category-inner">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Python</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>JavaScript</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>TypeScript</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>PHP</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Machine Learning & AI</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">Transformers</div>
-                        <div class="skill-item">OpenCV</div>
-                        <div class="skill-item">Gemini APIs</div>
-                        <div class="skill-item">Scikit-learn</div>
-                        <div class="skill-item">AI Autonomous Agents</div>
+
+                <div class="skill-category" data-tilt>
+                    <div class="skill-category-inner">
+                        <h3>Machine Learning & AI</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Transformers</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>OpenCV</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Gemini APIs</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Scikit-learn</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">HTML</div>
-                        <div class="skill-item">CSS</div>
-                        <div class="skill-item">Flask</div>
-                        <div class="skill-item">React.js</div>
+
+                <div class="skill-category" data-tilt>
+                    <div class="skill-category-inner">
+                        <h3>Web Development</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>HTML/CSS</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Flask</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React.js</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Mobile Development</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">React Native</div>
-                        <div class="skill-item">Expo Go</div>
+
+                <div class="skill-category" data-tilt>
+                    <div class="skill-category-inner">
+                        <h3>Mobile Development</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React Native</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Expo Go</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">MySQL</div>
-                        <div class="skill-item">Firebase</div>
-                        <div class="skill-item">MongoDB</div>
+
+                <div class="skill-category" data-tilt>
+                    <div class="skill-category-inner">
+                        <h3>Databases</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MySQL</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Firebase</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>MongoDB</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">Git</div>
-                        <div class="skill-item">GitHub</div>
-                        <div class="skill-item">On Render</div>
-                        <div class="skill-item">Google Cloud</div>
-                        <div class="skill-item">AWS</div>
+
+                <div class="skill-category" data-tilt>
+                    <div class="skill-category-inner">
+                        <h3>Tools & Platforms</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Git/GitHub</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>Google Cloud</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>AWS</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -311,25 +484,38 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-robot"></i>
+                        <img src="images/projects/jarvis.jpg" alt="Jarvis AI Assistant">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-robot fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Jarvis</h3>
                         <p>A Python-based virtual assistant with voice recognition and task automation, enhanced by API integrations for functionality.</p>
                         <div class="project-tags">
-                            <span>Python</span>
-                            <span>AI</span>
-                            <span>Voice Recognition</span>
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-brain"></i> AI</span>
+                            <span><i class="fas fa-microphone"></i> Voice Recognition</span>
                         </div>
                         <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/Jarvis" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/Jarvis" class="project-link" data-github="aathifpm/Jarvis" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-robot"></i>
+                        <img src="images/projects/agent-sterling.jpg" alt="Agent Sterling">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-robot fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Agent Sterling</h3>
@@ -343,165 +529,236 @@
                             
                             <a href="https://github.com/aathifpm/Agent_Sterling" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
                         </div>
+
                     </div>
+
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-language"></i>
+                        <img src="images/projects/ai-translator.jpg" alt="AI Translator Hub">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-language fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>AI Translator Hub</h3>
                         <p>A web-based translation platform with HTML, JavaScript, and AI models for accurate, efficient language processing.</p>
                         <div class="project-tags">
-                            <span>HTML</span>
-                            <span>JavaScript</span>
-                            <span>AI</span>
+                            <span><i class="fab fa-html5"></i> HTML</span>
+                            <span><i class="fab fa-js"></i> JavaScript</span>
+                            <span><i class="fas fa-brain"></i> AI</span>
                         </div>
                         <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/AI_translator_Hub" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/AI_translator_Hub" class="project-link" data-github="aathifpm/AI_translator_Hub" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-running"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>SportsFiesta</h3>
-                        <p>A JavaScript-based sports event platform to manage and dynamically display real-time sports information.</p>
-                        <div class="project-tags">
-                            <span>JavaScript</span>
-                            <span>Web Development</span>
+                        <img src="images/projects/feedback.jpg" alt="College Feedback Management System">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-comments fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/SportsFiesta" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>FestFusion</h3>
-                        <p>An event management platform using JavaScript and web technologies to streamline organization and participation.</p>
-                        <div class="project-tags">
-                            <span>JavaScript</span>
-                            <span>Web Development</span>
-                        </div>
-                        <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/Festfusion" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>NeuraCare</h3>
-                        <p>AI-Powered Virtual Health Assistant (2024) - A mobile healthcare app with React Native, using AI, Federated Learning, and Firebase for privacy-focused features.</p>
-                        <div class="project-tags">
-                            <span>React Native</span>
-                            <span>AI</span>
-                            <span>Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/NeuraCare" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-comments"></i>
                     </div>
                     <div class="project-content">
                         <h3>College Feedback Management System</h3>
                         <p>A full-stack feedback system with PHP, MySQL, and JavaScript, featuring multi-role access and automated reporting.</p>
                         <div class="project-tags">
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>JavaScript</span>
+                            <span><i class="fab fa-php"></i> PHP</span>
+                            <span><i class="fas fa-database"></i> MySQL</span>
+                            <span><i class="fab fa-js"></i> JavaScript</span>
                         </div>
                         <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/Feedback_system" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/Feedback_system" class="project-link" data-github="aathifpm/Feedback_system" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://youtu.be/GPceUI_YHow" class="project-link" aria-label="View demo">
+                                <i class="fab fa-youtube"></i> Demo
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-baseball-ball"></i>
+                        <img src="images/projects/sportsfiesta.jpg" alt="SportsFiesta">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-running fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>SportsFiesta</h3>
+                        <p>A JavaScript-based sports event platform to manage and dynamically display real-time sports information.</p>
+                        <div class="project-tags">
+                            <span><i class="fab fa-js"></i> JavaScript</span>
+                            <span><i class="fas fa-code"></i> Web Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aathifpm/SportsFiesta" class="project-link" data-github="aathifpm/SportsFiesta" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/festfusion.jpg" alt="FestFusion">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-calendar-alt fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>FestFusion</h3>
+                        <p>An event management platform using JavaScript and web technologies to streamline organization and participation.</p>
+                        <div class="project-tags">
+                            <span><i class="fab fa-js"></i> JavaScript</span>
+                            <span><i class="fas fa-code"></i> Web Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aathifpm/Festfusion" class="project-link" data-github="aathifpm/Festfusion" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/neuracare.jpg" alt="NeuraCare">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-heartbeat fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>NeuraCare</h3>
+                        <p>AI-Powered Virtual Health Assistant (2024) - A mobile healthcare app with React Native, using AI, Federated Learning, and Firebase for privacy-focused features.</p>
+                        <div class="project-tags">
+                            <span><i class="fab fa-react"></i> React Native</span>
+                            <span><i class="fas fa-brain"></i> AI</span>
+                            <span><i class="fas fa-fire"></i> Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/aathifpm/NeuraCare" class="project-link" data-github="aathifpm/NeuraCare" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/mlb.jpg" alt="MLB Storyteller">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-baseball-ball fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>MLB Storyteller (Statsaga)</h3>
                         <p>AI-Powered Baseball Platform - A full-stack platform on Google Cloud with FastAPI and Docker, creating AI-driven MLB narratives.</p>
                         <div class="project-tags">
-                            <span>Google Cloud</span>
-                            <span>FastAPI</span>
-                            <span>Docker</span>
-                            <span>AI</span>
+                            <span><i class="fab fa-google"></i> Google Cloud</span>
+                            <span><i class="fab fa-python"></i> FastAPI</span>
+                            <span><i class="fab fa-docker"></i> Docker</span>
+                            <span><i class="fas fa-brain"></i> AI</span>
                         </div>
                         <div class="project-links">
-                            
-                            <a href="https://github.com/aathifpm/MLB_GCP" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/MLB_GCP" class="project-link" data-github="aathifpm/MLB_GCP" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-wallet"></i>
+                        <img src="images/projects/expense.jpg" alt="Expense Tracker">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-wallet fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Expense Tracker</h3>
                         <p>A smart expense tracking application with Flask that helps manage finances using AI-powered insights and recommendations. Features include expense management, analytics dashboard, and smart category suggestions.</p>
                         <div class="project-tags">
-                            <span>Python</span>
-                            <span>Flask</span>
-                            <span>SQLite</span>
-                            <span>AI</span>
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-flask"></i> Flask</span>
+                            <span><i class="fas fa-database"></i> SQLite</span>
+                            <span><i class="fas fa-brain"></i> AI</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/aathifpm/Expense_Tracker" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/Expense_Tracker" class="project-link" data-github="aathifpm/Expense_Tracker" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
+                        <img src="images/projects/insurance.jpg" alt="Insurance Analytics">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-chart-line fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Insurance Analytics</h3>
                         <p>A comprehensive web application for managing and analyzing insurance claims with integrated machine learning capabilities for fraud detection, built with React and Python Flask.</p>
                         <div class="project-tags">
-                            <span>React</span>
-                            <span>TypeScript</span>
-                            <span>Python</span>
-                            <span>ML</span>
+                            <span><i class="fab fa-react"></i> React</span>
+                            <span><i class="fab fa-js"></i> TypeScript</span>
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-brain"></i> ML</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/aathifpm/insurance-analytics" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/insurance-analytics" class="project-link" data-github="aathifpm/insurance-analytics" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-file-alt"></i>
+                        <img src="images/projects/resume.jpg" alt="Resume Analyzer">
+                        <div class="project-overlay">
+                            <div class="project-overlay-content">
+                                <i class="fas fa-file-alt fa-3x"></i>
+                                <p>View Project</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Resume Analyzer</h3>
                         <p>An AI-powered resume analysis tool that helps streamline the recruitment process by extracting key information and providing intelligent insights from resumes.</p>
                         <div class="project-tags">
-                            <span>Python</span>
-                            <span>NLP</span>
-                            <span>Machine Learning</span>
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-language"></i> NLP</span>
+                            <span><i class="fas fa-brain"></i> Machine Learning</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/aathifpm/ResumeAnalyzer" class="project-link" aria-label="View code"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/aathifpm/ResumeAnalyzer" class="project-link" data-github="aathifpm/ResumeAnalyzer" aria-label="View code">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -567,7 +824,7 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Contact Me</h2>
+                <h2>Get In Touch</h2>
                 <div class="section-line"></div>
             </div>
             <div class="contact-content">
@@ -587,7 +844,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Email</h3>
-                            <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com" target="_blank">aathifpm123@gmail.com</a></p>
+                            <a href="mailto:aathifpm123@gmail.com">aathifpm123@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -596,41 +853,45 @@
                         </div>
                         <div class="contact-text">
                             <h3>Phone</h3>
-                            <p><a href="tel:+918608170780">+91 8608170780</a></p>
+                            <a href="tel:+918608170780">+91 8608170780</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
+                            <i class="fas fa-globe"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>LinkedIn</h3>
-                            <p><a href="https://www.linkedin.com/in/aathifpm/" target="_blank">@aathifpm</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>GitHub</h3>
-                            <p><a href="https://www.github.com/aathifpm" target="_blank">@aathifpm</a></p>
+                            <h3>Connect With Me</h3>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/aathifpm/" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://www.github.com/aathifpm" target="_blank" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="mailto:aathifpm123@gmail.com" class="social-link">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Email</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <input type="text" id="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <input type="email" id="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <input type="text" id="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            <textarea id="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn primary-btn">Send Message</button>
                     </form>
@@ -662,14 +923,39 @@
     <script>
         // Check if device is mobile
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const EMAIL_ADDRESS = "aathifpm123@gmail.com";
         
         // Update all email links based on device type
         document.addEventListener('DOMContentLoaded', function() {
-            const emailLinks = document.querySelectorAll('a[href^="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com"]');
+            // Find all Gmail web composer links
+            const gmailLinks = document.querySelectorAll(`a[href^="https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}"]`);
+            
+            // Find all mailto links
+            const mailtoLinks = document.querySelectorAll(`a[href^="mailto:${EMAIL_ADDRESS}"]`);
             
             if (isMobile) {
-                emailLinks.forEach(link => {
-                    link.href = "mailto:aathifpm123@gmail.com";
+                // Convert all Gmail web composer links to mailto on mobile
+                gmailLinks.forEach(link => {
+                    link.href = `mailto:${EMAIL_ADDRESS}`;
+                });
+            } else {
+                // Convert all mailto links to Gmail web composer on desktop
+                mailtoLinks.forEach(link => {
+                    // Extract any subject/body parameters if they exist
+                    const hrefParts = link.href.split('?');
+                    const params = hrefParts.length > 1 ? hrefParts[1] : '';
+                    
+                    // Parse existing mailto parameters if any
+                    const urlParams = new URLSearchParams(params);
+                    const subject = urlParams.get('subject') || '';
+                    const body = urlParams.get('body') || '';
+                    
+                    // Create Gmail web composer URL with same parameters if they exist
+                    let gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}`;
+                    if (subject) gmailUrl += `&su=${encodeURIComponent(subject)}`;
+                    if (body) gmailUrl += `&body=${encodeURIComponent(body)}`;
+                    
+                    link.href = gmailUrl;
                 });
             }
         });
@@ -688,12 +974,21 @@
             
             if (isMobile) {
                 // Use mailto protocol for mobile devices to open native email app
-                window.location.href = `mailto:aathifpm123@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+                window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${mailtoSubject}&body=${mailtoBody}`;
             } else {
                 // Use Gmail web composer for desktop
-                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com&su=${mailtoSubject}&body=${mailtoBody}`, '_blank');
+                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}&su=${mailtoSubject}&body=${mailtoBody}`, '_blank');
             }
         });
     </script>
+    <script src="js/hero.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/timeline.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/effects.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/certifications.js"></script>
 </body>
 </html> 
