@@ -75,11 +75,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile Menu Toggle
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        burger.classList.toggle('active');
-    });
+    // Mobile Menu Toggle with improved handling
+    if (burger && nav) {
+        // Force initial state reset
+        burger.classList.remove('active');
+        nav.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+        
+        // Add explicit click handler using addEventListener
+        burger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Check current state
+            const isCurrentlyActive = nav.classList.contains('active');
+            
+            // Toggle by using direct manipulation instead of toggle
+            if (isCurrentlyActive) {
+                nav.classList.remove('active');
+                burger.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+                
+            } else {
+                nav.classList.add('active');
+                burger.classList.add('active');
+                burger.setAttribute('aria-expanded', 'true');
+                
+            }
+        });
+        
+        // Add click outside to close
+        document.addEventListener('click', function(e) {
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !burger.contains(e.target)) {
+                nav.classList.remove('active');
+                burger.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+    } 
 
     // Update active state on scroll
     window.addEventListener('scroll', setActiveLink);
@@ -89,10 +125,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Show/Hide Floating Nav based on scroll position
     window.addEventListener('scroll', () => {
-        if (window.scrollY > window.innerHeight) {
-            floatingNav.style.display = 'block';
-        } else {
-            floatingNav.style.display = 'none';
+        if (floatingNav) {
+            if (window.scrollY > window.innerHeight) {
+                floatingNav.style.display = 'block';
+            } else {
+                floatingNav.style.display = 'none';
+            }
         }
     });
 }); 

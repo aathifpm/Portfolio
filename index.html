@@ -69,10 +69,10 @@
                         </button>
                     </li>
                 </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                <div class="burger" aria-expanded="false">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
                 </div>
             </nav>
         </div>
@@ -585,7 +585,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>  
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/projects/sportsfiesta.jpg" alt="SportsFiesta">
@@ -990,5 +990,33 @@
     <script src="js/effects.js"></script>
     <script src="js/about.js"></script>
     <script src="js/certifications.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            if (burger && nav) {
+                burger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        burger.classList.remove('active');
+                        burger.setAttribute('aria-expanded', 'false');
+                    } else {
+                        nav.classList.add('active');
+                        burger.classList.add('active');
+                        burger.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                document.addEventListener('click', function(e) {
+                    if (nav.classList.contains('active') && !nav.contains(e.target) && !burger.contains(e.target)) {
+                        nav.classList.remove('active');
+                        burger.classList.remove('active');
+                        burger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html> 
