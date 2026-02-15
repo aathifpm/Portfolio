@@ -1,1168 +1,569 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Aathif Jameel PM - AI & Full Stack Developer Portfolio showcasing projects, skills, and experience in AI, Web, and Mobile development">
-    <meta name="keywords"
-        content="Aathif,Jameel, aathifpay, aathifpm,Aathifpm, Aathif Jameel PM, AI Developer, Full Stack Developer, Machine Learning, Web Development, Mobile Development">
-    <meta name="author" content="Aathif Jameel PM">
-    <meta property="og:title" content="Aathif Jameel PM - AI & Full Stack Developer">
-    <meta property="og:description" content="Portfolio showcasing AI, Web & Mobile development projects and skills">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aathifpm.github.io">
-    <title>Aathif Jameel PM - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/effects.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <meta name="description" content="Aathif Jameel PM - AI & Full Stack Developer Portfolio">
+    <title>Aathif Jameel PM | AI Developer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/png" href="images/prf.png">
-    <!-- Add new libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXYK27YDWK"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'G-DXYK27YDWK');
-    </script>
-    <!-- Theme toggle script (placed in head for immediate effect) -->
-    <script>
-        // Check for saved theme preference or use system preference
-        const getPreferredTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-
-                return savedTheme;
-            }
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            return systemPrefersDark ? 'dark' : 'light';
-        }
-
-        // Apply the theme
-        const setTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-
-        }
-
-        // Set initial theme
-        setTheme(getPreferredTheme());
-    </script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
-    <div class="scroll-progress"></div>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">AJ</div>
-                <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="theme-toggle">
-                        <button id="themeToggle" aria-label="Toggle dark mode">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
-                        </button>
-                    </li>
-                </ul>
-                <div class="burger" aria-expanded="false">
-                    <div class="line line1"></div>
-                    <div class="line line2"></div>
-                    <div class="line line3"></div>
-                </div>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-container">
+            <div class="scan-line"></div>
+            <div class="counter-container">
+                <span class="loader-counter">0</span>
+                <span class="percent">%</span>
+            </div>
+            <div class="loader-text-wrapper">
+                <span class="loader-status">INITIALIZING SYSTEMS</span>
+            </div>
+        </div>
+        <div class="bg-noise"></div>
+    </div>
+
+    <!-- WebGL Background -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#work" class="mobile-link">Projects</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <div class="main-container">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="logo">
+                <span class="logo-text">AJ<span class="dot">.</span></span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="site-nav">
+                <a href="#about" class="nav-link hover-magnet">About</a>
+                <a href="#skills" class="nav-link hover-magnet">Skills</a>
+                <a href="#experience" class="nav-link hover-magnet">Experience</a>
+                <a href="#work" class="nav-link hover-magnet">Projects</a>
+                <a href="#contact" class="nav-link hover-magnet">Contact</a>
             </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div id="particles-js"></div>
-        <div class="container">
+            <!-- Mobile Toggle -->
+            <div class="mobile-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
             <div class="hero-content">
-                <div class="hero-image">
-                    <img src="images/prf.png" alt="Aathif Jameel PM">
+                <div class="hero-text-mask">
+                    <h1 class="hero-title">Aathif Jameel<br>PM</h1>
                 </div>
-                <div class="hero-text">
-                    <h1>AATHIF JAMEEL PM</h1>
-                    <h2>AI & Full Stack Developer</h2>
-                    <p id="typed-text"></p>
-                    <div class="hero-cta">
-                        <a href="#contact" class="btn primary-btn">Contact Me</a>
-                        <a href="#projects" class="btn secondary-btn">View Projects</a>
-                        <a href="assets/Aathif_Resume.pdf" class="btn secondary-btn" download>
-                            <i class="fas fa-download"></i> My Resume
-                        </a>
-                    </div>
-                    <div class="hero-social">
-                        <a href="https://www.linkedin.com/in/aathifpm/" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://www.github.com/aathifpm" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com" target="_blank"><i
-                                class="fas fa-envelope"></i></a>
-                    </div>
+                <div class="hero-text-mask">
+                    <p class="subtitle">AI & Full Stack <span class="highlight">Developer</span>. Creating modern
+                        intelligent systems that work in the wild.</p>
                 </div>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary magnet-btn"
+                        onclick="document.querySelector('#work').scrollIntoView()">
+                        <span class="btn-text">View Projects</span>
+                        <div class="btn-fill"></div>
+                    </button>
+                    <button class="btn btn-secondary magnet-btn"
+                        onclick="document.querySelector('#contact').scrollIntoView()">
+                        <span class="btn-text">Contact Me</span>
+                    </button>
+                    <a href="assets/Aathif_resume.pdf" target="_blank" class="btn btn-secondary magnet-btn"
+                        style="text-decoration:none; display:inline-flex; align-items:center;">
+                        <span class="btn-text">Resume</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual is complex 3D, hidden on mobile via CSS -->
+            <div class="hero-visual-container">
+                <!-- <div class="floating-card c-1 parallax-el" data-speed="0.05">
+                    <img src="assets/project_ui.png" alt="UI Element">
+                </div>
+                <div class="floating-card c-2 parallax-el" data-speed="0.1">
+                    <img src="assets/smartwatch.png" alt="Device">
+                </div> -->
+                <div class="main-visual parallax-el" data-speed="0">
+                    <img src="assets/profile.png" alt="Aathif Jameel" class="hero-img-3d profile-hero">
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee-section">
+            <div class="marquee-content">
+                <span>Artificial Intelligence</span> <span class="separator">•</span>
+                <span>Full Stack Dev</span> <span class="separator">•</span>
+                <span>Generative AI</span> <span class="separator">•</span>
+                <span>Machine Learning</span> <span class="separator">•</span>
+                <span>Mobile Apps</span> <span class="separator">•</span>
+                <span>System Design</span> <span class="separator">•</span>
+                <span>Artificial Intelligence</span> <span class="separator">•</span>
+                <span>Full Stack Dev</span> <span class="separator">•</span>
+                <span>Generative AI</span> <span class="separator">•</span>
             </div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
+        <!-- About Section -->
+        <section class="about-section" id="about" style="padding: 100px 0;">
             <div class="section-header">
-                <h2>About Me</h2>
-                <div class="section-line"></div>
+                <h2 class="reveal-text">About Me</h2>
+                <div class="line-animated"></div>
             </div>
-            <div class="about-content">
+            <div class="about-grid">
                 <div class="about-text">
-                    <p>I believe technology is meant to create meaningful impact and I choose to build it.</p>
-                    <p>From AI-powered automation to scalable platforms used by thousands, I design, train, and deploy
-                        intelligent systems that don’t just work on paper, they work in the wild. Sometimes I go solo,
-                        sometimes I lead teams, but always with one goal: build things that matter...</p>
-                    <p>My toolkit spans the modern AI/ML landscape including neural networks, transformers, NLP,
-                        computer vision, and generative AI, powered by PyTorch, TensorFlow, Hugging Face, and
-                        scikit-learn. On top of this, I bring strong engineering depth in Python, Java, and scalable
-                        system design, ensuring AI moves seamlessly from concept to production.</p>
-                    <p>Security, usability, and performance guide my work, backed by hands-on experience in data
-                        preprocessing, RESTful APIs, cloud deployment, and robust back-end logic.</p>
-                    <p>Curiosity, creativity, and precision fuel every model I train and every system I architect. I am
-                        eager to bring my expertise in AI engineering, ML research, and intelligent product development
-                        to teams shaping the future of technology.</p>
-                    <p>If you need someone who can bridge cutting-edge AI with production-ready engineering and
-                        consistently deliver beyond expectations, let’s connect...</p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <span class="info-title">Location:</span>
-                            <span class="info-value">Chennai, India</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-title">Phone:</span>
-                            <span class="info-value">+91 8608170780</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-title">Email:</span>
-                            <span class="info-value">aathifpm123@gmail.com</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-title">Languages:</span>
-                            <span class="info-value">Urdu (C2), English (C1), Tamil (C2), Hindi (B2)</span>
-                        </div>
+                    <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 20px; line-height: 1.7;">
+                        I believe technology is meant to create meaningful impact and I choose to build it. From
+                        AI-powered automation to scalable platforms used by thousands, I design, train, and deploy
+                        intelligent systems that don’t just work on paper, they work in the wild.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #aaa; margin-bottom: 20px; line-height: 1.7;">
+                        My toolkit spans the modern AI/ML landscape including neural networks, transformers, NLP,
+                        computer vision, and generative AI. On top of this, I bring strong engineering depth in Python,
+                        Java, and scalable system design.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #aaa; line-height: 1.7;">
+                        Location: <span class="highlight">Chennai, India</span><br>
+                        Languages: <span class="highlight">Urdu, English, Tamil, Hindi</span>
+                    </p>
+                </div>
+                <div class="education-card">
+                    <h3 style="font-family: var(--font-heading); margin-bottom: 20px;">Education</h3>
+                    <div class="edu-item">
+                        <h4 style="color: white; font-size: 1.2rem;">B.Tech (Honours): AI & Data Science</h4>
+                        <p style="color: var(--text-secondary); margin-top: 5px;">Panimalar Engineering College, Chennai
+                        </p>
+                        <p style="color: var(--accent); margin-top: 5px; font-size: 0.9rem;">Expected: 2026</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills" style="padding-bottom: 100px;">
             <div class="section-header">
-                <h2>Education</h2>
-                <div class="section-line"></div>
+                <h2 class="reveal-text">Technical Arsenal</h2>
+                <div class="line-animated"></div>
             </div>
-            <div class="education-content">
-                <div class="education-item">
-                    <div class="education-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="education-info">
-                        <h3>B.Tech (Honours): Artificial Intelligence and Data Science</h3>
-                        <h4>Panimalar Engineering College, Chennai, Tamil Nadu, India</h4>
-                        <p>Expected: 2026</p>
+
+            <div class="skills-wrapper">
+
+                <!-- Languages -->
+                <div class="skill-category">
+                    <h3><i data-feather="terminal"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
+                <!-- AI & ML (Preserved + Relevant) -->
+                <div class="skill-category">
+                    <h3><i data-feather="cpu"></i> AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Gemini APIs</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">TensorFlow.js</span>
+                    </div>
+                </div>
+
+                <!-- Frontend & Mobile -->
+                <div class="skill-category">
+                    <h3><i data-feather="smartphone"></i> Frontend & Mobile</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">Expo</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Bootstrap</span>
+                    </div>
+                </div>
+
+                <!-- Backend & Database -->
+                <div class="skill-category">
+                    <h3><i data-feather="database"></i> Backend & Database</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">nest js</span>
+                        <span class="skill-tag">node js</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- DevOps & Cloud -->
+                <div class="skill-category">
+                    <h3><i data-feather="cloud"></i> DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Oracle Cloud</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                    </div>
+                </div>
+
+                <!-- Methodologies -->
+                <div class="skill-category">
+                    <h3><i data-feather="trello"></i> Methodologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile Scrum</span>
+                        <span class="skill-tag">HLD (High Level Design)</span>
+                        <span class="skill-tag">LLD (Low Level Design)</span>
+                        <span class="skill-tag">ESLint</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience-section" id="experience" style="padding-bottom: 100px;">
             <div class="section-header">
-                <h2>Skills</h2>
-                <div class="section-line"></div>
+                <h2 class="reveal-text">Experience</h2>
+                <div class="line-animated"></div>
             </div>
-            <div class="skills-content">
-                <div class="skill-category" data-tilt>
-                    <div class="skill-category-inner">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Python</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>JavaScript</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>TypeScript</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>PHP</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                        </div>
+
+            <div class="exp-timeline"
+                style="border-left: 1px solid rgba(255,255,255,0.2); margin-left: 20px; padding-left: 40px;">
+                <div class="exp-item" style="margin-bottom: 50px; position:relative;">
+                    <div class="dot"
+                        style="position:absolute; left:-46px; top:5px; width:12px; height:12px; background:var(--accent); border-radius:50%;">
                     </div>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-heading);">Full Stack Developer</h3>
+                    <h4 style="color: white; margin-bottom: 10px;">Triblet (Startup) <span
+                            style="color:var(--text-secondary); font-size:0.9rem;">| Nov 2024 - May 2025</span></h4>
+                    <p style="color: var(--text-secondary); max-width: 800px;">Lead developer of Triblet, a sports
+                        tournament mobile app. Architected real-time score updates, automated leaderboards, and managed
+                        the entire frontend/backend stack for performance and scalability.</p>
                 </div>
 
-                <div class="skill-category" data-tilt>
-                    <div class="skill-category-inner">
-                        <h3>Machine Learning & AI</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Transformers</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>OpenCV</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Gemini APIs</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Scikit-learn</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="exp-item" style="margin-bottom: 50px; position:relative;">
+                    <div class="dot"
+                        style="position:absolute; left:-46px; top:5px; width:12px; height:12px; background:var(--accent); border-radius:50%;">
                     </div>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-heading);">Machine Learning Intern</h3>
+                    <h4 style="color: white; margin-bottom: 10px;">CODSOFT <span
+                            style="color:var(--text-secondary); font-size:0.9rem;">| May 2023 - July 2023</span></h4>
+                    <p style="color: var(--text-secondary); max-width: 800px;">Developed machine learning models for
+                        fraud detection and financial transaction security.</p>
                 </div>
 
-                <div class="skill-category" data-tilt>
-                    <div class="skill-category-inner">
-                        <h3>Web Development</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>HTML/CSS</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="95"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Flask</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>React.js</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="exp-item" style="margin-bottom: 50px; position:relative;">
+                    <div class="dot"
+                        style="position:absolute; left:-46px; top:5px; width:12px; height:12px; background:var(--accent); border-radius:50%;">
                     </div>
-                </div>
-
-                <div class="skill-category" data-tilt>
-                    <div class="skill-category-inner">
-                        <h3>Mobile Development</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>React Native</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Expo Go</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-tilt>
-                    <div class="skill-category-inner">
-                        <h3>Databases</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>MySQL</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Firebase</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>MongoDB</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-tilt>
-                    <div class="skill-category-inner">
-                        <h3>Tools & Platforms</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Git/GitHub</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>Google Cloud</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>AWS</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-heading);">Hackathons & Leadership</h3>
+                    <h4 style="color: white; margin-bottom: 10px;">National Level <span
+                            style="color:var(--text-secondary); font-size:0.9rem;">| 2023 - 2025</span></h4>
+                    <ul style="color: var(--text-secondary); list-style: none; padding: 0;">
+                        <li>• Ranked #1 in TN Region at BitNBuilt 24 (Finalist Mumbai)</li>
+                        <li>• Finalist in 100x Engineers AI Agent Hackathon (Bangalore)</li>
+                        <li>• Participant in CODECRAFT 24 and SSN Hackathons</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
+        <!-- Projects Section -->
+        <section class="projects-section" id="work">
             <div class="section-header">
-                <h2>Experience & Achievements</h2>
-                <div class="section-line"></div>
+                <h2 class="reveal-text">Selected Projects</h2>
+                <div class="line-animated"></div>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Nov 2024-May 2025</div>
-                    <div class="timeline-content">
-                        <h3>Full Stack Developer</h3>
-                        <h4>Triblet(Startup)</h4>
-                        <ul>
-                            <li>Lead developer of Triblet, a sports tournament and game management mobile application.
-                            </li>
-                            <li>Architected and implemented complex features such as real-time score updates, automated
-                                leaderboard calculations, and dynamic team management.</li>
-                            <li>Designed and developed the entire application, ensuring smooth integration of features
-                                and optimal user experience.</li>
-                            <li>Led all aspects of development, including frontend and backend, enhancing performance,
-                                scalability, and reliability.</li>
-                            <li>Continuously improving and maintaining the application, ensuring seamless user
-                                interactions and efficient tournament management.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">May-July 2023</div>
-                    <div class="timeline-content">
-                        <h3>Machine Learning Intern</h3>
-                        <h4>CODSOFT</h4>
-                        <p>Developed machine learning models for multiple problems, including fraud detection, enhancing
-                            the
-                            security of financial transactions.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023-2025</div>
-                    <div class="timeline-content">
-                        <h3>Multiple National-Level Hackathons</h3>
-                        <ul>
-                            <li>Competed in BitNBuilt 24, ranking #1 in Tamil Nadu region and advancing to the finals in
-                                Mumbai (24-hour hackathon).</li>
-                            <li>Finalist in 100x Engineers AI Agent Hackathon, qualifying for the Bangalore finale
-                                (36-hour
-                                hackathon).</li>
-                            <li>Participated in CODECRAFT 24 (Sairam Engineering College, 24-hour hackathon) and SSN
-                                36-hour hackathon.</li>
-                            <li>Developed innovative solutions under intense time constraints, showcasing skills in
-                                problem-solving,
-                                teamwork, and rapid prototyping.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023-2024</div>
-                    <div class="timeline-content">
-                        <h3>Leadership & Achievements</h3>
-                        <p>Active participant in hackathons and innovation challenges, demonstrating a commitment to
-                            continuous
-                            learning and application of skills in competitive environments.</p>
-                        <p>Led multiple hackathon teams to success by fostering collaboration, maximizing team
-                            potential, and
-                            driving innovative AI solutions under tight deadlines.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
+            <div class="projects-grid-mosaic">
+                <!-- USIP -->
+                <div class="project-item item-standard glow-hover" data-title="Unified Students Insight Platform"
+                    data-desc="A comprehensive feedback platform serving over 10,000 users. It streamlines the feedback process for educational institutions, offering real-time analytics and insights to improve student satisfaction and institutional performance."
+                    data-tech='["php", "mysql", "javascript", "HTML5", "CSS3","Ajax","JQuery"]'
+                    data-images='["assets/fb1.png", "assets/fb2.png", "assets/fb3.png",  "assets/fb4.png","assets/fb5.png"]'
+                    data-live="https://ads-panimalar.in" data-code="https://github.com/aathifpm/Feedback_system">
+                    <div class="p-img-container">
+                        <img src="assets/fb2.png" alt="College Feedback System">
+                    </div>
+                    <div class="p-info">
+                        <div class="p-title-row">
+                            <h3>Unified Students Insight</h3>
+                            <div class="links">
+                                <a href="https://ads-panimalar.in" target="_blank" title="Live Site"><i
+                                        data-feather="external-link"></i></a>
+                                <a href="https://youtu.be/GPceUI_YHow" target="_blank" title="Video"><i
+                                        data-feather="youtube"></i></a>
+                                <a href="https://github.com/aathifpm/Feedback_system" target="_blank" title="Code"><i
+                                        data-feather="github"></i></a>
+                            </div>
+                        </div>
+                        <p>Feedback Platform (10k+ Users)</p>
+                    </div>
+                </div>
+
+                <!-- NS Giftings -->
+                <div class="project-item item-standard glow-hover" data-title="NS Giftings"
+                    data-desc="A premier B2B e-commerce platform for customized corporate gifting solutions. Features a vast catalog including electronics, sustainable gifts, and personalized merchandise, serving businesses with bulk ordering capabilities.Fully SEO Optimized"
+                    data-tech='["next js", "node js", "Firebase", "Tailwind CSS"]' data-images='["assets/ns.png","assets/ns2.png","assets/ns3.png"]'
+                    data-live="https://nsgiftings.in" data-code="">
+                    <div class="p-img-container">
+                        <img src="assets/ns.png" alt="NS Giftings">
+                    </div>
+                    <div class="p-info">
+                        <div class="p-title-row">
+                            <h3>NS Giftings</h3>
+                            <div class="links">
+                                <a href="https://nsgiftings.in" target="_blank" title="Live Site"><i
+                                        data-feather="external-link"></i></a>
+                            </div>
+                        </div>
+                        <p>B2B Corporate Gifting Platform</p>
+                    </div>
+                </div>
+
+                <!-- AURA Fashion -->
+                <div class="project-item item-standard glow-hover" data-title="AURA Fashion"
+                    data-desc="A minimalist fashion e-commerce platform delivering a premium shopping experience. Built for speed and aesthetics, it features real-time product updates, secure user authentication and a sleek, responsive interface. All order notifications are sent to the admin via telegram bot and email. Admin can manage orders, users and products."
+                    data-tech='["React", "Vite", "Firebase", "Tailwind CSS"]' data-images='["assets/af1.png","assets/af2.png","assets/af3.png","assets/af4.png","assets/af5.png"]'
+                    data-live="https://ecom.aathifpm.co.in" data-code="">
+                    <div class="p-img-container">
+                        <img src="assets/af1.png" alt="AURA Fashion">
+                    </div>
+                    <div class="p-info">
+                        <div class="p-title-row">
+                            <h3>AURA Fashion</h3>
+                            <div class="links">
+                                <a href="https://ecom.aathifpm.co.in" target="_blank" title="Live Site"><i
+                                        data-feather="external-link"></i></a>
+                            </div>
+                        </div>
+                        <p>Minimalist E-commerce (React, Firebase)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Projects Grid -->
+            <div class="more-projects">
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>Agent Sterling</h4>
+                        <div style="display:flex; gap:10px;">
+                            <a href="https://sterling.aathifpm.xyz" target="_blank"><i
+                                    data-feather="external-link"></i></a>
+                            <a href="https://github.com/aathifpm/Agent_Sterling" target="_blank"><i
+                                    data-feather="github"></i></a>
+                        </div>
+                    </div>
+                    <p>AI Social Media Assistant with Gemini Pro & FastAPI.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>NeuraCare AI</h4>
+                        <a href="https://github.com/aathifpm/NeuraCare" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>Privacy-focused Health Assistant using Federated Learning.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>MLB Storyteller</h4>
+                        <a href="https://github.com/aathifpm/MLB_GCP" target="_blank"><i data-feather="github"></i></a>
+                    </div>
+                    <p>Automated sports narratives via GCP & Docker.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>Jarvis AI</h4>
+                        <a href="https://github.com/aathifpm/Jarvis" target="_blank"><i data-feather="github"></i></a>
+                    </div>
+                    <p>Voice recognition & automation assistant.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>AI Translator Hub</h4>
+                        <a href="https://github.com/aathifpm/AI_translator_Hub" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>Web-based translation with accurate models.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>Expense Tracker</h4>
+                        <a href="https://github.com/aathifpm/Expense_Tracker" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>Smart finance management with AI insights.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>Resume Analyzer</h4>
+                        <a href="https://github.com/aathifpm/ResumeAnalyzer" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>AI extraction of key resume information.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>SportsFiesta</h4>
+                        <a href="https://github.com/aathifpm/SportsFiesta" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>Real-time sports information platform.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>FestFusion</h4>
+                        <a href="https://github.com/aathifpm/Festfusion" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>Comprehensive event management system.</p>
+                </div>
+
+                <div class="mini-card project-anim">
+                    <div class="mini-header">
+                        <h4>Insurance Analytics</h4>
+                        <a href="https://github.com/aathifpm/insurance-analytics" target="_blank"><i
+                                data-feather="github"></i></a>
+                    </div>
+                    <p>Fraud detection & claims management.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="certs-section">
             <div class="section-header">
-                <h2>Projects</h2>
-                <div class="section-line"></div>
+                <h2 class="reveal-text">Certifications</h2>
+                <div class="line-animated"></div>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/jarvis.jpg" alt="Jarvis AI Assistant">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-robot fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Jarvis</h3>
-                        <p>A Python-based virtual assistant with voice recognition and task automation, enhanced by API
-                            integrations for functionality.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-python"></i> Python</span>
-                            <span><i class="fas fa-brain"></i> AI</span>
-                            <span><i class="fas fa-microphone"></i> Voice Recognition</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/Jarvis" class="project-link"
-                                data-github="aathifpm/Jarvis" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/agent-sterling.jpg" alt="Agent Sterling">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-robot fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Agent Sterling</h3>
-                        <p>Developed an AI-powered social media assistant using FastAPI and Gemini Pro for intelligent,
-                            cross-platform interaction (Twitter, Mastodon); integrated real-time trend tracking and
-                            mention management with a modular, async backend.</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>AI</span>
-                            <span>Automation</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://sterling.aathifpm.xyz" class="project-link" aria-label="View live demo">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/aathifpm/Agent_Sterling" class="project-link"
-                                data-github="aathifpm/Agent_Sterling" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
+            <div class="certs-list">
+                <div class="cert-pill">Oracle Cloud Gen AI</div>
+                <div class="cert-pill">Infosys Generative AI</div>
+                <div class="cert-pill">NASSCOM Cybersecurity</div>
+                <div class="cert-pill">GPT-3 for Developers</div>
+                <div class="cert-pill">Intro to Data Science</div>
+            </div>
+        </section>
 
+        <!-- Interactive Footer -->
+        <footer class="big-footer" id="contact">
+            <div class="footer-cta">
+                <h2 class="reveal-text">Let's build <br>the future.</h2>
+                <div class="contact-details"
+                    style="margin-top: 40px; margin-bottom: 40px; font-size: 1.2rem; color: #aaa;">
+                    <p>aathifpm123@gmail.com</p>
+                    <p>+91 8608170780</p>
+                    <p>Chennai, India</p>
+                </div>
+                <a href="mailto:aathifpm123@gmail.com" style="text-decoration:none;">
+                    <div class="cta-circle magnet-btn">
+                        <span>Say<br>Hello</span>
                     </div>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/aathif-jameel-pm" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/aathifpm" target="_blank">GitHub</a>
+                    <a href="mailto:aathifpm123@gmail.com">Email</a>
+                </div>
+                <p>&copy; 2026 Aathif Jameel PM.</p>
+            </div>
+        </footer>
 
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/ai-translator.jpg" alt="AI Translator Hub">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-language fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>AI Translator Hub</h3>
-                        <p>A web-based translation platform with HTML, JavaScript, and AI models for accurate, efficient
-                            language processing.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-html5"></i> HTML</span>
-                            <span><i class="fab fa-js"></i> JavaScript</span>
-                            <span><i class="fas fa-brain"></i> AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/AI_translator_Hub" class="project-link"
-                                data-github="aathifpm/AI_translator_Hub" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content" data-lenis-prevent>
+            <button class="modal-close">&times;</button>
+
+            <div class="modal-gallery-container">
+                <div class="modal-gallery">
+                    <div class="gallery-track" id="gallery-track">
+                        <!-- Images injected here -->
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/feedback.jpg" alt="College Feedback Management System">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-comments fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Unified Students Insight Platform</h3>
-                        <p>Built a full-stack platform using PHP, MySQL, and JavaScript featuring feedback automation,
-                            attendance tracking, and a recruiter dashboard; currently used across 8+ departments by 10k+
-                            students.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-php"></i> PHP</span>
-                            <span><i class="fas fa-database"></i> MySQL</span>
-                            <span><i class="fab fa-js"></i> JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/Feedback_system" class="project-link"
-                                data-github="aathifpm/Feedback_system" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="https://youtu.be/GPceUI_YHow" class="project-link" aria-label="View demo">
-                                <i class="fab fa-youtube"></i> Demo
-                            </a>
-                            <a href="https://ads-panimalar.in" class="project-link" aria-label="View live demo">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
+                <button class="gallery-nav prev" id="gallery-prev">&#10094;</button>
+                <button class="gallery-nav next" id="gallery-next">&#10095;</button>
+            </div>
+
+            <div class="modal-info">
+                <h2 id="modal-title">Project Title</h2>
+                <div class="modal-tech-stack" id="modal-tech">
+                    <!-- Tech tags injected here -->
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/sportsfiesta.jpg" alt="SportsFiesta">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-running fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>SportsFiesta</h3>
-                        <p>A JavaScript-based sports event platform to manage and dynamically display real-time sports
-                            information.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-js"></i> JavaScript</span>
-                            <span><i class="fas fa-code"></i> Web Development</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/SportsFiesta" class="project-link"
-                                data-github="aathifpm/SportsFiesta" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/festfusion.jpg" alt="FestFusion">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-calendar-alt fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>FestFusion</h3>
-                        <p>An event management platform using JavaScript and web technologies to streamline organization
-                            and participation.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-js"></i> JavaScript</span>
-                            <span><i class="fas fa-code"></i> Web Development</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/Festfusion" class="project-link"
-                                data-github="aathifpm/Festfusion" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/neuracare.jpg" alt="NeuraCare">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-heartbeat fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>NeuraCare</h3>
-                        <p>AI-Powered Virtual Health Assistant (2024) - A mobile healthcare app with React Native, using
-                            AI, Federated Learning, and Firebase for privacy-focused features.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-react"></i> React Native</span>
-                            <span><i class="fas fa-brain"></i> AI</span>
-                            <span><i class="fas fa-fire"></i> Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/NeuraCare" class="project-link"
-                                data-github="aathifpm/NeuraCare" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/mlb.jpg" alt="MLB Storyteller">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-baseball-ball fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>MLB Storyteller (Statsaga)</h3>
-                        <p>AI-Powered Baseball Platform - A full-stack platform on Google Cloud with FastAPI and Docker,
-                            creating AI-driven MLB narratives.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-google"></i> Google Cloud</span>
-                            <span><i class="fab fa-python"></i> FastAPI</span>
-                            <span><i class="fab fa-docker"></i> Docker</span>
-                            <span><i class="fas fa-brain"></i> AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/MLB_GCP" class="project-link"
-                                data-github="aathifpm/MLB_GCP" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/expense.jpg" alt="Expense Tracker">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-wallet fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Expense Tracker</h3>
-                        <p>A smart expense tracking application with Flask that helps manage finances using AI-powered
-                            insights and recommendations. Features include expense management, analytics dashboard, and
-                            smart category suggestions.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-python"></i> Python</span>
-                            <span><i class="fas fa-flask"></i> Flask</span>
-                            <span><i class="fas fa-database"></i> SQLite</span>
-                            <span><i class="fas fa-brain"></i> AI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/Expense_Tracker" class="project-link"
-                                data-github="aathifpm/Expense_Tracker" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/insurance.jpg" alt="Insurance Analytics">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-chart-line fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Insurance Analytics</h3>
-                        <p>A comprehensive web application for managing and analyzing insurance claims with integrated
-                            machine learning capabilities for fraud detection, built with React and Python Flask.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-react"></i> React</span>
-                            <span><i class="fab fa-js"></i> TypeScript</span>
-                            <span><i class="fab fa-python"></i> Python</span>
-                            <span><i class="fas fa-brain"></i> ML</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/insurance-analytics" class="project-link"
-                                data-github="aathifpm/insurance-analytics" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/resume.jpg" alt="Resume Analyzer">
-                        <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <i class="fas fa-file-alt fa-3x"></i>
-                                <p>View Project</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Resume Analyzer</h3>
-                        <p>An AI-powered resume analysis tool that helps streamline the recruitment process by
-                            extracting key information and providing intelligent insights from resumes.</p>
-                        <div class="project-tags">
-                            <span><i class="fab fa-python"></i> Python</span>
-                            <span><i class="fas fa-language"></i> NLP</span>
-                            <span><i class="fas fa-brain"></i> Machine Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/aathifpm/ResumeAnalyzer" class="project-link"
-                                data-github="aathifpm/ResumeAnalyzer" aria-label="View code">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
+                <p id="modal-desc">Project description goes here...</p>
+                <div class="modal-links">
+                    <a href="#" target="_blank" class="btn btn-primary" id="modal-live">Live Demo</a>
+                    <a href="#" target="_blank" class="btn btn-secondary" id="modal-code">View Code</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <div class="section-header">
-                <h2>Certifications</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="certifications-content">
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Oracle Cloud Infrastructure 2024 Generative AI</h3>
-                        <h4>ORACLE</h4>
-                        <p>Certified Professional Credential validates proficiency in Oracle Cloud's Generative AI
-                            services.</p>
-                        <a href="certificates/oracle Gen AI (418).pdf" target="_blank" class="verify-link">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Principles of Generative AI</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Successfully completed certification in generative AI fundamentals, covering core concepts,
-                            architectures, and practical applications of generative models.</p>
-                        <a href="certificates/Principles of Generative AI Certification-(418).pdf" target="_blank"
-                            class="verify-link">View Certificate</a>
-                    </div>
-                </div>
-
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Cybersecurity Fundamentals</h3>
-                        <h4>NASSCOM</h4>
-                        <p>Successfully completed NASSCOM's Cybersecurity Fundamentals Assessment, showcasing
-                            proficiency in core cybersecurity concepts</p>
-                        <a href="certificates/Cybersecurity Nasscom.pdf" target="_blank" class="verify-link">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>HTML5 - The Language</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Successfully completed a comprehensive course on HTML5, gaining skills in modern web
-                            development fundamentals.</p>
-                        <a href="certificates/HTML 5 The Language.pdf" target="_blank" class="verify-link">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Networking and Web Technology</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Mastered core networking concepts and web technologies, enabling me to build robust and
-                            scalable web applications.</p>
-                        <a href="certificates/Networking and Web Technology.pdf" target="_blank"
-                            class="verify-link">View Certificate</a>
-                    </div>
-                </div>
-
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>GPT-3 for Developers</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Mastered implementation of OpenAI's GPT-3 in applications, gaining practical knowledge of
-                            advanced AI model deployment.</p>
-                        <a href="certificates/GPT-3 for developers(418).pdf" target="_blank" class="verify-link">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Generative Models for Developers</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Developed expertise in implementing various generative AI models, focusing on practical
-                            application development.</p>
-                        <a href="certificates/Generative models for developers(418).pdf" target="_blank"
-                            class="verify-link">View Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Introduction to Data Science</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Successfully completed a course covering foundational concepts in data science, equipping me
-                            with skills to analyze and interpret data effectively.</p>
-                        <a href="certificates/Aathif-DS-INFSB.pdf" target="_blank" class="verify-link">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Introduction to Python</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Gained proficiency in Python programming fundamentals, enhancing my ability to develop
-                            solutions for data-driven tasks.</p>
-                        <a href="certificates/Aathif-PY-INFSB.pdf" target="_blank" class="verify-link">View
-                            Certificate</a>
-                    </div>
-                </div>
-                <div class="certification-card">
-                    <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="certification-details">
-                        <h3>Introduction to OpenAI GPT Models</h3>
-                        <h4>Infosys Limited (via Infosys Springboard)</h4>
-                        <p>Gained foundational knowledge of OpenAI's GPT architecture, understanding model capabilities
-                            and implementation strategies.</p>
-                        <a href="certificates/Introduction to OpenAI GPT Models(418).pdf" target="_blank"
-                            class="verify-link">View Certificate</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Location</h3>
-                            <p>Chennai, Tamil Nadu, India</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <a href="mailto:aathifpm123@gmail.com">aathifpm123@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <a href="tel:+918608170780">+91 8608170780</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Connect With Me</h3>
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/aathifpm/" target="_blank" class="social-link">
-                                    <i class="fab fa-linkedin"></i>
-                                    <span>LinkedIn</span>
-                                </a>
-                                <a href="https://www.github.com/aathifpm" target="_blank" class="social-link">
-                                    <i class="fab fa-github"></i>
-                                    <span>GitHub</span>
-                                </a>
-                                <a href="mailto:aathifpm123@gmail.com" class="social-link">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Email</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn primary-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">AJ</div>
-                <div class="footer-text">
-                    <p>&copy; 2024 Aathif Jameel PM. All Rights Reserved.</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/aathifpm/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.github.com/aathifpm" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aathifpm123@gmail.com" target="_blank"><i
-                            class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
-
-    <!-- Form submission and email handling script -->
+    <script src="script.js"></script>
     <script>
-        // Check if device is mobile
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        const EMAIL_ADDRESS = "aathifpm123@gmail.com";
-
-        // Update all email links based on device type
-        document.addEventListener('DOMContentLoaded', function () {
-            // Find all Gmail web composer links
-            const gmailLinks = document.querySelectorAll(`a[href^="https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}"]`);
-
-            // Find all mailto links
-            const mailtoLinks = document.querySelectorAll(`a[href^="mailto:${EMAIL_ADDRESS}"]`);
-
-            if (isMobile) {
-                // Convert all Gmail web composer links to mailto on mobile
-                gmailLinks.forEach(link => {
-                    link.href = `mailto:${EMAIL_ADDRESS}`;
-                });
-            } else {
-                // Convert all mailto links to Gmail web composer on desktop
-                mailtoLinks.forEach(link => {
-                    // Extract any subject/body parameters if they exist
-                    const hrefParts = link.href.split('?');
-                    const params = hrefParts.length > 1 ? hrefParts[1] : '';
-
-                    // Parse existing mailto parameters if any
-                    const urlParams = new URLSearchParams(params);
-                    const subject = urlParams.get('subject') || '';
-                    const body = urlParams.get('body') || '';
-
-                    // Create Gmail web composer URL with same parameters if they exist
-                    let gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}`;
-                    if (subject) gmailUrl += `&su=${encodeURIComponent(subject)}`;
-                    if (body) gmailUrl += `&body=${encodeURIComponent(body)}`;
-
-                    link.href = gmailUrl;
-                });
-            }
-        });
-
-        // Handle contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            const mailtoSubject = encodeURIComponent(subject);
-            const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-
-            if (isMobile) {
-                // Use mailto protocol for mobile devices to open native email app
-                window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${mailtoSubject}&body=${mailtoBody}`;
-            } else {
-                // Use Gmail web composer for desktop
-                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL_ADDRESS}&su=${mailtoSubject}&body=${mailtoBody}`, '_blank');
-            }
-        });
-    </script>
-    <script src="js/hero.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/skills.js"></script>
-    <script src="js/timeline.js"></script>
-    <script src="js/projects.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/effects.js"></script>
-    <script src="js/about.js"></script>
-    <script src="js/certifications.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            if (burger && nav) {
-                burger.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (nav.classList.contains('active')) {
-                        nav.classList.remove('active');
-                        burger.classList.remove('active');
-                        burger.setAttribute('aria-expanded', 'false');
-                    } else {
-                        nav.classList.add('active');
-                        burger.classList.add('active');
-                        burger.setAttribute('aria-expanded', 'true');
-                    }
-                });
-                document.addEventListener('click', function (e) {
-                    if (nav.classList.contains('active') && !nav.contains(e.target) && !burger.contains(e.target)) {
-                        nav.classList.remove('active');
-                        burger.classList.remove('active');
-                        burger.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            }
-        });
+        feather.replace();
     </script>
 </body>
 
