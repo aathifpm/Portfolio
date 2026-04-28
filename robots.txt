@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /assets/Aathif_resume.pdf
+
 Sitemap: https://www.aathifpm.co.in/sitemap.xml

@@ -136,6 +136,7 @@ body.hovering .cursor-outline {
     font-weight: 800;
     font-size: 2rem;
     letter-spacing: -1px;
+    color: white;
 }
 
 .dot {
@@ -163,6 +164,9 @@ body.hovering .cursor-outline {
     gap: 6px;
     cursor: pointer;
     z-index: 60;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .bar {
@@ -707,6 +711,10 @@ body.hovering .cursor-outline {
         justify-content: center;
     }
 
+    .subtitle {
+        margin: 0 auto 40px auto;
+    }
+
     /* Simplified Hero Visual for Mobile */
     .hero-visual-container {
         display: block;
@@ -798,7 +806,7 @@ body.hovering .cursor-outline {
 
 @media (max-width: 600px) {
     .hero-title {
-        font-size: 3.5rem;
+        font-size: clamp(2rem, 11vw, 3.5rem);
         /* Force a reasonable size */
     }
 

@@ -4,12 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aathif Jameel PM - AI & Full Stack Developer Portfolio">
-    <title>Aathif Jameel PM | AI Developer</title>
 
-    <!-- Fonts -->
+    <!-- Primary SEO Meta Tags -->
+    <title>Aathif Jameel PM | AI & Full Stack Developer – Portfolio</title>
+    <meta name="title" content="Aathif Jameel PM | AI & Full Stack Developer – Portfolio">
+    <meta name="description" content="Portfolio of Aathif Jameel PM – AI & Full Stack Developer from Chennai, India. Specializing in Generative AI, React Native, scalable APIs, and production-grade web & mobile applications. View projects, skills, and experience.">
+    <meta name="keywords" content="Aathif Jameel PM, AI Developer, Full Stack Developer, React Native Developer, Machine Learning Engineer, Generative AI, Portfolio, Chennai Developer, Web Developer India, Python Developer, Next.js Developer">
+    <meta name="author" content="Aathif Jameel PM">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.aathifpm.co.in/">
+
+    <!-- Theme & Favicon -->
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aathifpm.co.in/">
+    <meta property="og:title" content="Aathif Jameel PM | AI & Full Stack Developer">
+    <meta property="og:description" content="AI & Full Stack Developer from Chennai, India. Building production-grade intelligent systems, mobile apps, and scalable web platforms.">
+    <meta property="og:image" content="https://www.aathifpm.co.in/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Aathif Jameel PM – Portfolio">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.aathifpm.co.in/">
+    <meta name="twitter:title" content="Aathif Jameel PM | AI & Full Stack Developer">
+    <meta name="twitter:description" content="AI & Full Stack Developer from Chennai, India. Building production-grade intelligent systems, mobile apps, and scalable web platforms.">
+    <meta name="twitter:image" content="https://www.aathifpm.co.in/assets/og-image.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aathif Jameel PM",
+        "url": "https://www.aathifpm.co.in",
+        "image": "https://www.aathifpm.co.in/assets/profile.png",
+        "jobTitle": "AI & Full Stack Developer",
+        "description": "Final year AI & Data Science student specializing in Generative AI, full-stack development, and production-grade intelligent systems.",
+        "email": "aathifpm123@gmail.com",
+        "telephone": "+918608170780",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chennai",
+            "addressCountry": "IN"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Panimalar Engineering College"
+        },
+        "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Full Stack Development", "React Native", "Generative AI", "Python", "JavaScript", "TypeScript"],
+        "sameAs": [
+            "https://www.linkedin.com/in/aathifpm",
+            "https://github.com/aathifpm"
+        ]
+    }
+    </script>
+
+    <!-- Fonts (preconnect + preload critical font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -17,17 +78,28 @@
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Libraries (defer to unblock rendering) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
     <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons" defer></script>
 </head>
 
 <body>
+
+    <!-- Noscript fallback for search engine crawlers -->
+    <noscript>
+        <div style="padding: 40px; text-align: center; font-family: sans-serif; background: #0a0a0a; color: #fff; min-height: 100vh;">
+            <h1>Aathif Jameel PM – AI & Full Stack Developer</h1>
+            <p>Final year AI & Data Science student from Chennai, India. Experienced in building production-grade web applications, mobile apps, and intelligent AI systems.</p>
+            <p>Skills: Python, JavaScript, TypeScript, React, React Native, Next.js, Node.js, Spring Boot, TensorFlow, Generative AI, Docker, AWS, GCP</p>
+            <p>Contact: <a href="mailto:aathifpm123@gmail.com" style="color: #7B61FF;">aathifpm123@gmail.com</a></p>
+            <p><a href="https://www.linkedin.com/in/aathifpm" style="color: #7B61FF;">LinkedIn</a> | <a href="https://github.com/aathifpm" style="color: #7B61FF;">GitHub</a></p>
+        </div>
+    </noscript>
 
     <!-- Loading Screen -->
     <div class="loader" id="loader">
@@ -52,23 +124,25 @@
     <div class="cursor-outline"></div>
 
     <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav-overlay">
+    <nav class="mobile-nav-overlay" aria-label="Mobile navigation">
         <a href="#about" class="mobile-link">About</a>
         <a href="#skills" class="mobile-link">Skills</a>
         <a href="#experience" class="mobile-link">Experience</a>
         <a href="#work" class="mobile-link">Projects</a>
         <a href="#contact" class="mobile-link">Contact</a>
-    </div>
+    </nav>
 
-    <div class="main-container">
+    <main class="main-container" role="main">
         <!-- Header -->
-        <header class="site-header">
+        <header class="site-header" role="banner">
             <div class="logo">
-                <span class="logo-text">AJ<span class="dot">.</span></span>
+                <a href="#home" aria-label="Aathif Jameel PM - Home" style="text-decoration:none;">
+                    <span class="logo-text">AJ</span>
+                </a>
             </div>
 
             <!-- Desktop Nav -->
-            <nav class="site-nav">
+            <nav class="site-nav" aria-label="Primary navigation">
                 <a href="#about" class="nav-link hover-magnet">About</a>
                 <a href="#skills" class="nav-link hover-magnet">Skills</a>
                 <a href="#experience" class="nav-link hover-magnet">Experience</a>
@@ -77,15 +151,15 @@
             </nav>
 
             <!-- Mobile Toggle -->
-            <div class="mobile-toggle">
+            <button class="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
-            </div>
+            </button>
         </header>
 
         <!-- Hero Section -->
-        <section class="hero-section" id="home">
+        <section class="hero-section" id="home" aria-label="Introduction">
             <div class="hero-content">
                 <div class="hero-text-mask">
                     <h1 class="hero-title">Aathif Jameel<br>PM</h1>
@@ -97,15 +171,15 @@
 
                 <div class="hero-actions">
                     <button class="btn btn-primary magnet-btn"
-                        onclick="document.querySelector('#work').scrollIntoView()">
+                        onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'})">
                         <span class="btn-text">View Projects</span>
                         <div class="btn-fill"></div>
                     </button>
                     <button class="btn btn-secondary magnet-btn"
-                        onclick="document.querySelector('#contact').scrollIntoView()">
+                        onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
                         <span class="btn-text">Contact Me</span>
                     </button>
-                    <a href="assets/Aathif_resume.pdf" target="_blank" class="btn btn-secondary magnet-btn"
+                    <a href="assets/Aathif_resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnet-btn"
                         style="text-decoration:none; display:inline-flex; align-items:center;">
                         <span class="btn-text">Resume</span>
                     </a>
@@ -114,14 +188,8 @@
 
             <!-- Visual is complex 3D, hidden on mobile via CSS -->
             <div class="hero-visual-container">
-                <!-- <div class="floating-card c-1 parallax-el" data-speed="0.05">
-                    <img src="assets/project_ui.png" alt="UI Element">
-                </div>
-                <div class="floating-card c-2 parallax-el" data-speed="0.1">
-                    <img src="assets/smartwatch.png" alt="Device">
-                </div> -->
                 <div class="main-visual parallax-el" data-speed="0">
-                    <img src="assets/profile.png" alt="Aathif Jameel" class="hero-img-3d profile-hero">
+                    <img src="assets/profile.png" alt="Aathif Jameel PM – AI and Full Stack Developer from Chennai, India" class="hero-img-3d profile-hero" width="400" height="400" loading="eager">
                 </div>
             </div>
         </section>
@@ -142,13 +210,13 @@
         </div>
 
         <!-- About Section -->
-        <section class="about-section" id="about" style="padding: 100px 0;">
+        <section class="about-section" id="about" style="padding: 100px 0;" aria-label="About Aathif Jameel PM">
             <div class="section-header">
                 <h2 class="reveal-text">About Me</h2>
                 <div class="line-animated"></div>
             </div>
             <div class="about-grid">
-                <div class="about-text">
+                <article class="about-text">
                     <p style="font-size: 1.2rem; color: #fff; margin-bottom: 24px; line-height: 1.6; font-weight: 600; letter-spacing: 0.01em;">
                         I don't just study AI. I ship it.
                     </p>
@@ -171,8 +239,8 @@
                         Location: <span class="highlight">Chennai, India</span><br>
                         Languages: <span class="highlight">Urdu, English, Tamil, Hindi</span>
                     </p>
-                </div>
-                <div class="education-card">
+                </article>
+                <aside class="education-card">
                     <h3 style="font-family: var(--font-heading); margin-bottom: 20px;">Education</h3>
                     <div class="edu-item">
                         <h4 style="color: white; font-size: 1.2rem;">B.Tech (Honours): AI &amp; Data Science</h4>
@@ -180,12 +248,12 @@
                         </p>
                         <p style="color: var(--accent); margin-top: 5px; font-size: 0.9rem;">Expected: 2026</p>
                     </div>
-                </div>
+                </aside>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section class="skills-section" id="skills" style="padding-bottom: 100px;">
+        <section class="skills-section" id="skills" style="padding-bottom: 100px;" aria-label="Technical skills">
             <div class="section-header">
                 <h2 class="reveal-text">Technical Arsenal</h2>
                 <div class="line-animated"></div>
@@ -202,8 +270,7 @@
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">TypeScript</span>
                         <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
+
                     </div>
                 </div>
 
@@ -211,10 +278,14 @@
                 <div class="skill-category">
                     <h3><i data-feather="cpu"></i> AI & Machine Learning</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Gemini APIs</span>
-                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">LangGraph</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Multi-Agent Orchestration</span>
+                        <span class="skill-tag">Transformer</span>
                         <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">TensorFlow.js</span>
+                        <span class="skill-tag">TensorFlow</span>
                     </div>
                 </div>
 
@@ -223,10 +294,11 @@
                     <h3><i data-feather="smartphone"></i> Frontend & Mobile</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Next.js</span>
                         <span class="skill-tag">React Native</span>
-                        <span class="skill-tag">Expo</span>
                         <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
                     </div>
                 </div>
 
@@ -251,7 +323,6 @@
                     <div class="skill-tags">
                         <span class="skill-tag">AWS</span>
                         <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Oracle Cloud</span>
                         <span class="skill-tag">Docker</span>
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Jenkins</span>
@@ -259,6 +330,7 @@
                         <span class="skill-tag">CI/CD</span>
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Azure</span>
                     </div>
                 </div>
 
@@ -269,7 +341,6 @@
                         <span class="skill-tag">Agile Scrum</span>
                         <span class="skill-tag">HLD (High Level Design)</span>
                         <span class="skill-tag">LLD (Low Level Design)</span>
-                        <span class="skill-tag">ESLint</span>
                     </div>
                 </div>
 
@@ -277,7 +348,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section class="experience-section" id="experience" style="padding-bottom: 100px;">
+        <section class="experience-section" id="experience" style="padding-bottom: 100px;" aria-label="Work experience">
             <div class="section-header">
                 <h2 class="reveal-text">Experience</h2>
                 <div class="line-animated"></div>
@@ -285,6 +356,16 @@
 
             <div class="exp-timeline"
                 style="border-left: 1px solid rgba(255,255,255,0.2); margin-left: 20px; padding-left: 40px;">
+                <div class="exp-item" style="margin-bottom: 50px; position:relative;">
+                    <div class="dot"
+                        style="position:absolute; left:-46px; top:5px; width:12px; height:12px; background:var(--accent); border-radius:50%;">
+                    </div>
+                    <h3 style="font-size: 1.8rem; font-family: var(--font-heading);">PAT Intern - Data Engineer</h3>
+                    <h4 style="color: white; margin-bottom: 10px;">Cognizant <span
+                            style="color:var(--text-secondary); font-size:0.9rem;">| Jan 2026 - Apr 2026</span></h4>
+                    <p style="color: var(--text-secondary); max-width: 800px;">Engineered scalable data pipelines using Azure Data Factory, Synapse Analytics and PySpark. Optimized data warehousing and SQL workflows, applied Python for transformations, and delivered actionable insights via Power BI dashboards.</p>
+                </div>
+
                 <div class="exp-item" style="margin-bottom: 50px; position:relative;">
                     <div class="dot"
                         style="position:absolute; left:-46px; top:5px; width:12px; height:12px; background:var(--accent); border-radius:50%;">
@@ -325,7 +406,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section class="projects-section" id="work">
+        <section class="projects-section" id="work" aria-label="Selected projects">
             <div class="section-header">
                 <h2 class="reveal-text">Selected Projects</h2>
                 <div class="line-animated"></div>
@@ -339,17 +420,17 @@
                     data-images='["assets/fb1.png", "assets/fb2.png", "assets/fb3.png",  "assets/fb4.png","assets/fb5.png"]'
                     data-live="https://ads-panimalar.in" data-code="https://github.com/aathifpm/Feedback_system">
                     <div class="p-img-container">
-                        <img src="assets/fb2.png" alt="College Feedback System">
+                        <img src="assets/fb2.png" alt="Unified Students Insight Platform – Feedback system serving 10,000+ users" loading="lazy" width="600" height="400">
                     </div>
                     <div class="p-info">
                         <div class="p-title-row">
                             <h3>Unified Students Insight</h3>
                             <div class="links">
-                                <a href="https://ads-panimalar.in" target="_blank" title="Live Site"><i
+                                <a href="https://ads-panimalar.in" target="_blank" rel="noopener noreferrer" title="Live Site" aria-label="View Unified Students Insight Platform live site"><i
                                         data-feather="external-link"></i></a>
-                                <a href="https://youtu.be/GPceUI_YHow" target="_blank" title="Video"><i
+                                <a href="https://youtu.be/GPceUI_YHow" target="_blank" rel="noopener noreferrer" title="Video Demo" aria-label="Watch Unified Students Insight Platform video demo"><i
                                         data-feather="youtube"></i></a>
-                                <a href="https://github.com/aathifpm/Feedback_system" target="_blank" title="Code"><i
+                                <a href="https://github.com/aathifpm/Feedback_system" target="_blank" rel="noopener noreferrer" title="Source Code" aria-label="View Unified Students Insight Platform source code"><i
                                         data-feather="github"></i></a>
                             </div>
                         </div>
@@ -363,13 +444,13 @@
                     data-tech='["next js", "node js", "Firebase", "Tailwind CSS"]' data-images='["assets/ns.png","assets/ns2.png","assets/ns3.png"]'
                     data-live="https://nsgiftings.in" data-code="">
                     <div class="p-img-container">
-                        <img src="assets/ns.png" alt="NS Giftings">
+                        <img src="assets/ns.png" alt="NS Giftings – B2B corporate gifting e-commerce platform" loading="lazy" width="600" height="400">
                     </div>
                     <div class="p-info">
                         <div class="p-title-row">
                             <h3>NS Giftings</h3>
                             <div class="links">
-                                <a href="https://nsgiftings.in" target="_blank" title="Live Site"><i
+                                <a href="https://nsgiftings.in" target="_blank" rel="noopener noreferrer" title="Live Site" aria-label="View NS Giftings live site"><i
                                         data-feather="external-link"></i></a>
                             </div>
                         </div>
@@ -383,13 +464,13 @@
                     data-tech='["React", "Vite", "Firebase", "Tailwind CSS"]' data-images='["assets/af1.png","assets/af2.png","assets/af3.png","assets/af4.png","assets/af5.png"]'
                     data-live="https://ecom.aathifpm.co.in" data-code="">
                     <div class="p-img-container">
-                        <img src="assets/af1.png" alt="AURA Fashion">
+                        <img src="assets/af1.png" alt="AURA Fashion – Minimalist fashion e-commerce platform" loading="lazy" width="600" height="400">
                     </div>
                     <div class="p-info">
                         <div class="p-title-row">
                             <h3>AURA Fashion</h3>
                             <div class="links">
-                                <a href="https://ecom.aathifpm.co.in" target="_blank" title="Live Site"><i
+                                <a href="https://ecom.aathifpm.co.in" target="_blank" rel="noopener noreferrer" title="Live Site" aria-label="View AURA Fashion live site"><i
                                         data-feather="external-link"></i></a>
                             </div>
                         </div>
@@ -405,9 +486,9 @@
                     <div class="mini-header">
                         <h4>Agent Sterling</h4>
                         <div style="display:flex; gap:10px;">
-                            <a href="https://sterling.aathifpm.xyz" target="_blank"><i
+                            <a href="https://sterling.aathifpm.co.in" target="_blank" rel="noopener noreferrer" aria-label="View Agent Sterling live site"><i
                                     data-feather="external-link"></i></a>
-                            <a href="https://github.com/aathifpm/Agent_Sterling" target="_blank"><i
+                            <a href="https://github.com/aathifpm/Agent_Sterling" target="_blank" rel="noopener noreferrer" aria-label="View Agent Sterling source code"><i
                                     data-feather="github"></i></a>
                         </div>
                     </div>
@@ -417,7 +498,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>NeuraCare AI</h4>
-                        <a href="https://github.com/aathifpm/NeuraCare" target="_blank"><i
+                        <a href="https://github.com/aathifpm/NeuraCare" target="_blank" rel="noopener noreferrer" aria-label="View NeuraCare AI source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>Privacy-focused Health Assistant using Federated Learning.</p>
@@ -426,7 +507,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>MLB Storyteller</h4>
-                        <a href="https://github.com/aathifpm/MLB_GCP" target="_blank"><i data-feather="github"></i></a>
+                        <a href="https://github.com/aathifpm/MLB_GCP" target="_blank" rel="noopener noreferrer" aria-label="View MLB Storyteller source code"><i data-feather="github"></i></a>
                     </div>
                     <p>Automated sports narratives via GCP & Docker.</p>
                 </div>
@@ -434,7 +515,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>Jarvis AI</h4>
-                        <a href="https://github.com/aathifpm/Jarvis" target="_blank"><i data-feather="github"></i></a>
+                        <a href="https://github.com/aathifpm/Jarvis" target="_blank" rel="noopener noreferrer" aria-label="View Jarvis AI source code"><i data-feather="github"></i></a>
                     </div>
                     <p>Voice recognition & automation assistant.</p>
                 </div>
@@ -442,7 +523,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>AI Translator Hub</h4>
-                        <a href="https://github.com/aathifpm/AI_translator_Hub" target="_blank"><i
+                        <a href="https://github.com/aathifpm/AI_translator_Hub" target="_blank" rel="noopener noreferrer" aria-label="View AI Translator Hub source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>Web-based translation with accurate models.</p>
@@ -451,7 +532,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>Expense Tracker</h4>
-                        <a href="https://github.com/aathifpm/Expense_Tracker" target="_blank"><i
+                        <a href="https://github.com/aathifpm/Expense_Tracker" target="_blank" rel="noopener noreferrer" aria-label="View Expense Tracker source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>Smart finance management with AI insights.</p>
@@ -460,7 +541,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>Resume Analyzer</h4>
-                        <a href="https://github.com/aathifpm/ResumeAnalyzer" target="_blank"><i
+                        <a href="https://github.com/aathifpm/ResumeAnalyzer" target="_blank" rel="noopener noreferrer" aria-label="View Resume Analyzer source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>AI extraction of key resume information.</p>
@@ -469,7 +550,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>SportsFiesta</h4>
-                        <a href="https://github.com/aathifpm/SportsFiesta" target="_blank"><i
+                        <a href="https://github.com/aathifpm/SportsFiesta" target="_blank" rel="noopener noreferrer" aria-label="View SportsFiesta source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>Real-time sports information platform.</p>
@@ -478,7 +559,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>FestFusion</h4>
-                        <a href="https://github.com/aathifpm/Festfusion" target="_blank"><i
+                        <a href="https://github.com/aathifpm/Festfusion" target="_blank" rel="noopener noreferrer" aria-label="View FestFusion source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>Comprehensive event management system.</p>
@@ -487,7 +568,7 @@
                 <div class="mini-card project-anim">
                     <div class="mini-header">
                         <h4>Insurance Analytics</h4>
-                        <a href="https://github.com/aathifpm/insurance-analytics" target="_blank"><i
+                        <a href="https://github.com/aathifpm/insurance-analytics" target="_blank" rel="noopener noreferrer" aria-label="View Insurance Analytics source code"><i
                                 data-feather="github"></i></a>
                     </div>
                     <p>Fraud detection & claims management.</p>
@@ -512,38 +593,38 @@
         </section>
 
         <!-- Interactive Footer -->
-        <footer class="big-footer" id="contact">
+        <footer class="big-footer" id="contact" role="contentinfo">
             <div class="footer-cta">
                 <h2 class="reveal-text">Let's build <br>the future.</h2>
-                <div class="contact-details"
-                    style="margin-top: 40px; margin-bottom: 40px; font-size: 1.2rem; color: #aaa;">
-                    <p>aathifpm123@gmail.com</p>
-                    <p>+91 8608170780</p>
+                <address class="contact-details"
+                    style="margin-top: 40px; margin-bottom: 40px; font-size: 1.2rem; color: #aaa; font-style: normal;">
+                    <p><a href="mailto:aathifpm123@gmail.com" style="color: inherit; text-decoration: none;">aathifpm123@gmail.com</a></p>
+                    <p><a href="tel:+918608170780" style="color: inherit; text-decoration: none;">+91 8608170780</a></p>
                     <p>Chennai, India</p>
-                </div>
-                <a href="mailto:aathifpm123@gmail.com" style="text-decoration:none;">
+                </address>
+                <a href="mailto:aathifpm123@gmail.com" style="text-decoration:none;" aria-label="Send an email to Aathif Jameel PM">
                     <div class="cta-circle magnet-btn">
                         <span>Say<br>Hello</span>
                     </div>
                 </a>
             </div>
             <div class="footer-bottom">
-                <div class="socials">
-                    <a href="https://www.linkedin.com/in/aathifpm" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/aathifpm" target="_blank">GitHub</a>
+                <nav class="socials" aria-label="Social links">
+                    <a href="https://www.linkedin.com/in/aathifpm" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/aathifpm" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="mailto:aathifpm123@gmail.com">Email</a>
-                </div>
+                </nav>
                 <p>&copy; 2026 Aathif Jameel PM.</p>
             </div>
         </footer>
 
-    </div>
+    </main>
 
     <!-- Project Details Modal -->
     <div class="modal" id="project-modal">
         <div class="modal-overlay"></div>
         <div class="modal-content" data-lenis-prevent>
-            <button class="modal-close">&times;</button>
+            <button class="modal-close" aria-label="Close project details">&times;</button>
 
             <div class="modal-gallery-container">
                 <div class="modal-gallery">
@@ -551,8 +632,8 @@
                         <!-- Images injected here -->
                     </div>
                 </div>
-                <button class="gallery-nav prev" id="gallery-prev">&#10094;</button>
-                <button class="gallery-nav next" id="gallery-next">&#10095;</button>
+                <button class="gallery-nav prev" id="gallery-prev" aria-label="Previous image">&#10094;</button>
+                <button class="gallery-nav next" id="gallery-next" aria-label="Next image">&#10095;</button>
             </div>
 
             <div class="modal-info">
@@ -569,9 +650,9 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script>
-        feather.replace();
+        document.addEventListener('DOMContentLoaded', function() { feather.replace(); });
     </script>
 </body>
 
