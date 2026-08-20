@@ -248,10 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileToggle) {
         mobileToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('active');
+            const isActive = mobileNav.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
 
             // Stagger links
-            if (mobileNav.classList.contains('active')) {
+            if (isActive) {
                 gsap.to(mobileLinks, {
                     y: 0, opacity: 1,
                     stagger: 0.1, delay: 0.2
@@ -268,6 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileNav.classList.remove('active');
+            if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+            gsap.to(mobileLinks, { y: 20, opacity: 0 });
         });
     });
 
@@ -336,6 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const img = document.createElement('img');
                     img.src = imgSrc;
                     img.className = 'gallery-img';
+                    if (imgSrc.includes('img_')) {
+                        img.classList.add('contain-fit');
+                    }
                     mTrack.appendChild(img);
                 });
             } else {
@@ -365,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('active');
         document.body.style.overflow = '';
         window.threePaused = false; // Resume WebGL
+        resetZoom();
     };
 
     modalClose.addEventListener('click', closeModal);
@@ -375,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gallery Navigation
     const updateGallery = () => {
+        resetZoom();
         const offset = -(currentSlide * 100);
         mTrack.style.transform = `translateX(${offset}%)`;
     };
@@ -398,5 +406,110 @@ document.addEventListener('DOMContentLoaded', () => {
             updateGallery();
         }
     });
+
+    /* =========================================
+       8.1 Gallery Image Zoom & Pan Logic
+       ========================================= */
+    const zoomBtn = document.getElementById('gallery-zoom');
+    let isZoomed = false;
+    let currentZoomImg = null;
+    let zoomScale = 1;
+    let panX = 0, panY = 0;
+    let startX = 0, startY = 0;
+
+    const resetZoom = () => {
+        isZoomed = false;
+        zoomScale = 1;
+        panX = 0;
+        panY = 0;
+        currentZoomImg = null;
+        const allImgs = mTrack.querySelectorAll('.gallery-img');
+        allImgs.forEach(img => {
+            img.classList.remove('is-zoomed');
+            img.style.transform = `scale(1) translate(0px, 0px)`;
+            img.style.cursor = 'zoom-in';
+        });
+        if (zoomBtn) {
+            zoomBtn.innerHTML = '<i data-feather="zoom-in"></i>';
+            if (window.feather) feather.replace();
+        }
+    };
+
+    const toggleZoom = (img, clientX, clientY) => {
+        if (!img) return;
+        if (isZoomed && currentZoomImg === img) {
+            resetZoom();
+            return;
+        }
+
+        resetZoom();
+        isZoomed = true;
+        currentZoomImg = img;
+        zoomScale = 2.2;
+        img.classList.add('is-zoomed');
+        img.style.cursor = 'grab';
+
+        if (clientX !== undefined && clientY !== undefined) {
+            const rect = img.getBoundingClientRect();
+            const offsetX = (clientX - rect.left - rect.width / 2);
+            const offsetY = (clientY - rect.top - rect.height / 2);
+            panX = -offsetX * 0.8;
+            panY = -offsetY * 0.8;
+        } else {
+            panX = 0;
+            panY = 0;
+        }
+
+        img.style.transform = `scale(${zoomScale}) translate(${panX / zoomScale}px, ${panY / zoomScale}px)`;
+        if (zoomBtn) {
+            zoomBtn.innerHTML = '<i data-feather="zoom-out"></i>';
+            if (window.feather) feather.replace();
+        }
+    };
+
+    mTrack.addEventListener('click', (e) => {
+        const img = e.target.closest('.gallery-img');
+        if (img) {
+            toggleZoom(img, e.clientX, e.clientY);
+        }
+    });
+
+    mTrack.addEventListener('mousemove', (e) => {
+        if (!isZoomed || !currentZoomImg) return;
+        const img = currentZoomImg;
+        const container = mTrack.closest('.modal-gallery-container');
+        if (!container) return;
+        const rect = container.getBoundingClientRect();
+
+        const mouseXRatio = (e.clientX - rect.left) / rect.width - 0.5;
+        const mouseYRatio = (e.clientY - rect.top) / rect.height - 0.5;
+
+        panX = -mouseXRatio * rect.width * 0.7;
+        panY = -mouseYRatio * rect.height * 0.7;
+        img.style.transform = `scale(${zoomScale}) translate(${panX / zoomScale}px, ${panY / zoomScale}px)`;
+    });
+
+    mTrack.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1 && isZoomed && currentZoomImg) {
+            startX = e.touches[0].clientX - panX;
+            startY = e.touches[0].clientY - panY;
+        }
+    }, { passive: true });
+
+    mTrack.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 1 && isZoomed && currentZoomImg) {
+            panX = e.touches[0].clientX - startX;
+            panY = e.touches[0].clientY - startY;
+            currentZoomImg.style.transform = `scale(${zoomScale}) translate(${panX / zoomScale}px, ${panY / zoomScale}px)`;
+        }
+    }, { passive: true });
+
+    if (zoomBtn) {
+        zoomBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const activeImg = mTrack.querySelectorAll('.gallery-img')[currentSlide];
+            if (activeImg) toggleZoom(activeImg);
+        });
+    }
 
 });
