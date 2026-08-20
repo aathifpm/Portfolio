@@ -1,8 +1,8 @@
 :root {
-    --bg-color: #050505;
-    --text-primary: #ffffff;
-    --text-secondary: #888888;
-    --accent: #5c4dff;
+    --bg-color: #080808;
+    --text-primary: #F1F0EC;
+    --text-secondary: #88847B;
+    --accent: #C6A15B;
     --font-heading: 'Syne', sans-serif;
     --font-body: 'Space Grotesk', sans-serif;
     --easing: cubic-bezier(0.19, 1, 0.22, 1);

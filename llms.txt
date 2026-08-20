@@ -1,0 +1,42 @@
+# Aathif Jameel PM - Freelance AI, Full-Stack & Mobile App Developer
+
+> Freelance software engineer specializing in production AI systems (RAG, LangGraph agents, LLMs), full-stack web applications (React, Next.js, Node.js, PostgreSQL), and cross-platform mobile apps (React Native, Expo, iOS/Android). Available remotely worldwide for startups, SMBs, and product teams.
+
+## Core Services & Positioning
+
+- **Freelance AI Developer**: Custom AI applications, RAG search pipelines, multi-agent LangGraph workflows, Gemini/OpenAI integrations, answer evaluation systems, and vector search (pgvector/FAISS).
+- **Freelance Full-Stack Developer**: End-to-end web product development, SaaS MVPs, enterprise ERP platforms, REST APIs, database schema optimization, authentication, and cloud deployment.
+- **Freelance Mobile App Developer**: Cross-platform iOS and Android apps with React Native and Expo, offline-first SQLite caching, in-app purchases (Apple IAP, Google Play Billing, Razorpay), and EAS deployment.
+
+## Key Production Proof & Case Studies
+
+- **Unified Students Insight Platform**: Served 10,000+ students and 450+ faculty across 9 academic departments; reduced MySQL query latency by 40% (portfolio-reported scale metric).
+- **Thozhan AI**: Production AI exam-prep platform live on Google Play Store and web (thozhan-ai.com); features Gemini handwritten evaluation, pgvector RAG, SM-2 spaced repetition, and 3-gateway billing (Razorpay, Apple IAP, Google Play Billing).
+- **Genuine Engineering ERP**: 19-stage manufacturing approval workflow with role-based access control (RBAC), audit trails, Prisma, Supabase PostgreSQL, and Cloudflare R2 file attachments.
+- **HaulTracker**: Offline-first freight broker CRM with IndexedDB caching, background sync queues, AES-256-GCM phone encryption, and Razorpay subscriptions.
+- **NS Giftings**: B2B corporate gifting platform reaching #1 branded Google search ranking during launch.
+- **MedAgent**: 5-agent LangGraph diagnostic pipeline supporting 5 LLM providers with IBIS structured reasoning (project-reported HDCC validity 98% -> 100%).
+- **PaperBrain**: Source-attributed document RAG application with LangChain, FAISS, and sentence-transformers (~21ms project benchmark latency).
+
+## Commercial Service Pages
+
+- [Freelance AI Developer](https://aathifpm.co.in/freelance-ai-developer.html): AI agents, RAG, Gemini/OpenAI integration, and production AI architecture.
+- [Freelance Full-Stack Developer](https://aathifpm.co.in/freelance-fullstack-developer.html): SaaS MVPs, web apps, enterprise ERPs, APIs, and database engineering.
+- [Freelance Mobile App Developer](https://aathifpm.co.in/freelance-mobile-app-developer.html): Cross-platform iOS/Android apps, React Native, Expo, offline caching, and mobile billing.
+
+## Contact & Profile Information
+
+- **Website**: https://aathifpm.co.in/
+- **Email**: aathifpm123@gmail.com
+- **Phone**: +91 8608170780
+- **Location**: Chennai, India (Available remotely for clients across US, UK, Canada, Australia, Singapore, UAE, Europe)
+- **LinkedIn**: https://www.linkedin.com/in/aathifpm
+- **GitHub**: https://github.com/aathifpm
+
+## Technical Capabilities
+
+- **AI & LLM Stack**: LangGraph, LangChain, RAG Pipelines, Gemini API, OpenAI API, Pydantic, pgvector, FAISS, PyTorch, Transformers
+- **Frontend & Mobile**: React, Next.js, React Native, Expo, TypeScript, JavaScript, Tailwind CSS
+- **Backend & Databases**: Node.js, FastAPI, Python, Spring Boot, PostgreSQL, MySQL, Supabase, Prisma, Redis, Firebase
+- **DevOps & Security**: Docker, Vercel, GCP, Cloudflare R2, GitHub Actions, Sentry, AES-256-GCM, JWT/CSRF, RBAC
+- **Mobile Payments**: Razorpay, Apple In-App Purchases, Google Play Billing
